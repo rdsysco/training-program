@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { v4 } from 'uuid';
-import AddColorForm from './add-color-form';
-import ColorList from './color-list';
-import MemberList from './member-list';
-import Clock from './clock';
-import { render, unmountComponentAtNode } from 'react-dom';
-import HiddenMessages from './hidden-messages';
-import { Display, WhenFalsy, WhenTruthy } from './display'; 
+// import AddColorForm from './add-color-form';
+// import ColorList from './color-list';
+// import MemberList from './member-list';
+// import Clock from './clock';
+// import { render, unmountComponentAtNode } from 'react-dom';
+// import HiddenMessages from './hidden-messages';
+// import { Display, WhenFalsy, WhenTruthy } from './display'; 
+import CountryList from './country-list';
 import '../styles/App.css';
-import '../styles/star.css';
+// import '../styles/star.css';
 
 const target = document.getElementById('root');
 class App extends Component {
@@ -65,19 +66,19 @@ class App extends Component {
             //     seconds:"",
             //     timeOfDay:""
             // };
-        const age = 22;
+        // const age = 22;
         return (
         <div className="App">
             <header className="App-header">
-            
-            <Display ifTruthy={age >= 21}>
+            <CountryList/>
+            {/* <Display ifTruthy={age >= 21}>
                 <WhenTruthy>
                     <h1>You Can Enter</h1>
                 </WhenTruthy>
                 <WhenFalsy>
                     <h1>Bit it Kid</h1>
                 </WhenFalsy>
-            </Display>
+            </Display> */}
             {/* <Clock {...time} onClose={ () => unmountComponentAtNode(target) }/> */}
             {/* {/* <MemberList count={5}/> */}
             {/* <HiddenMessages/> */}
