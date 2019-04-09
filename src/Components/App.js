@@ -20,7 +20,7 @@ class App extends Component {
         id: Nanoid(),
         name: faker.commerce.color(),
         value: faker.internet.color(),
-        rates: [Math.floor(Math.random() * 5)],
+        rates: [Math.floor(Math.random() * 4) + 1],
       });
     
     }
@@ -43,7 +43,7 @@ class App extends Component {
     
     colors.push({
       id: Nanoid(),
-      rate: 0,
+      rates: [],
       name: name,
       value: color
     });
