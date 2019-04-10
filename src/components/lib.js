@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AlarmClockDisplay from './alarm-clock-display';
+
 const oneSecond = () => 1000;
 const getCurrentTime = () => new Date();
 const clear = () => console.clear();
@@ -84,5 +88,26 @@ const getClockTime = () =>
         doubleDigits
     )
 ;
+
+const render = Component => civilianTime => 
+    ReactDOM.render(
+        <Component {...civilianTime}/>,
+        document.getElementById('root')
+    )
+
+const startTickling = () =>
+        setInterval(
+            compose(
+                getCurrentTime,
+                serializeClockTime,
+                convertToCivilianTime,
+                doubleDigits,
+                render(AlarmClockDisplay)
+            ),
+            oneSecond()
+        )
+
+startTickling();
+
 
 export default getClockTime;
