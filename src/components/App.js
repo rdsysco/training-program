@@ -7,11 +7,15 @@ import { v4 } from 'uuid';
 // import { render, unmountComponentAtNode } from 'react-dom';
 // import HiddenMessages from './hidden-messages';
 // import { Display, WhenFalsy, WhenTruthy } from './display'; 
-import CountryList from './country-list';
+// import CountryList from './country-list';
 import '../styles/App.css';
+import RandomMeUsers from './random-users';
+// import PeopleList from './people-list';
+// import Timeline from './time-line';
+// import historicDatesForSkiing from '../data/timeline-data';
 // import '../styles/star.css';
 
-const target = document.getElementById('root');
+//const target = document.getElementById('root');
 class App extends Component {
 
     constructor(){
@@ -70,7 +74,10 @@ class App extends Component {
         return (
         <div className="App">
             <header className="App-header">
-            <CountryList/>
+            <RandomMeUsers count={100} />
+            {/* <PeopleList></PeopleList> */}
+            {/* <Timeline name="History of Siking" data={historicDatesForSkiing}/> */}
+            {/* <CountryList/> */}
             {/* <Display ifTruthy={age >= 21}>
                 <WhenTruthy>
                     <h1>You Can Enter</h1>
