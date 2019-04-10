@@ -13,7 +13,7 @@ const DataComponent = (ComposedComponent, url) =>
 
         componentWillMount() {
             this.setState({loading: true});
-            fetch(url + `?results=${this.props.count}`)
+            fetch(url)
                 .then(response => response.json())
                 .then(data => this.setState({
                     loaded: true,
@@ -27,7 +27,7 @@ const DataComponent = (ComposedComponent, url) =>
                 <div className="data-component">
                     {(this.state.loading) ?
                         <div>Loading...</div> :
-                        <ComposedComponent {...this.state} />
+                        <ComposedComponent {...this.state} {...this.props}/>
                     }
                 </div>
             )

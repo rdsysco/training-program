@@ -9,7 +9,8 @@ import { v4 } from 'uuid';
 // import { Display, WhenFalsy, WhenTruthy } from './display'; 
 // import CountryList from './country-list';
 import '../styles/App.css';
-import RandomMeUsers from './random-users';
+// import RandomMeUsers from './random-users';
+import CountryDropdown from './country-names';
 // import PeopleList from './people-list';
 // import Timeline from './time-line';
 // import historicDatesForSkiing from '../data/timeline-data';
@@ -74,7 +75,8 @@ class App extends Component {
         return (
         <div className="App">
             <header className="App-header">
-            <RandomMeUsers count={100} />
+            <CountryDropdown selected="Iran"/>
+            {/* <RandomMeUsers count={100} /> */}
             {/* <PeopleList></PeopleList> */}
             {/* <Timeline name="History of Siking" data={historicDatesForSkiing}/> */}
             {/* <CountryList/> */}
