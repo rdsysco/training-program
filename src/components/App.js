@@ -5,12 +5,12 @@ import { v4 } from 'uuid';
 // import MemberList from './member-list';
 // import Clock from './clock';
 // import { render, unmountComponentAtNode } from 'react-dom';
-// import HiddenMessages from './hidden-messages';
+import HiddenMessages from './hidden-messages';
 // import { Display, WhenFalsy, WhenTruthy } from './display'; 
 // import CountryList from './country-list';
 import '../styles/App.css';
 // import RandomMeUsers from './random-users';
-import CountryDropdown from './country-names';
+// import CountryDropdown from './country-names';
 // import PeopleList from './people-list';
 // import Timeline from './time-line';
 // import historicDatesForSkiing from '../data/timeline-data';
@@ -75,7 +75,7 @@ class App extends Component {
         return (
         <div className="App">
             <header className="App-header">
-            <CountryDropdown selected="Iran"/>
+            {/* <CountryDropdown selected="Iran"/> */}
             {/* <RandomMeUsers count={100} /> */}
             {/* <PeopleList></PeopleList> */}
             {/* <Timeline name="History of Siking" data={historicDatesForSkiing}/> */}
@@ -90,7 +90,7 @@ class App extends Component {
             </Display> */}
             {/* <Clock {...time} onClose={ () => unmountComponentAtNode(target) }/> */}
             {/* {/* <MemberList count={5}/> */}
-            {/* <HiddenMessages/> */}
+            <HiddenMessages/>
             {/* <AddColorForm onNewColor={addColor}/>
             <ColorList colors={colors} onRemove={removeColor} onRate={rateColor}/>  */}
             </header>

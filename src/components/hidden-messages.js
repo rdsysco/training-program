@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HiddenMessage from './hidden-message';
+import HiddenMessage from './show-hide-message';
 
 class HiddenMessages extends Component {
 
