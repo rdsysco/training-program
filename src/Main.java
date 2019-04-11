@@ -1,6 +1,9 @@
+import breakingtherecords.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("WELCOME TO JAVA");
+        breakingRecords br = new breakingRecords();
+        br.input();
+        br.output();
     }
 }
