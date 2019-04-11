@@ -91,7 +91,11 @@ const getClockTime = () =>
 
 const render = Component => civilianTime => 
     ReactDOM.render(
-        <Component {...civilianTime}/>,
+        <div className="App">
+            <header className="App-header">
+                <Component {...civilianTime}/>
+            </header>
+        </div>,
         document.getElementById('root')
     )
 
