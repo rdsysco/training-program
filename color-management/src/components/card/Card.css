@@ -1,0 +1,30 @@
+.card{
+    width: 450px;
+    box-sizing: content-box;
+    display: inline-block;
+    padding: 15px 0;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card h1{
+    margin: 0;
+}
+
+.card .color{
+    margin: 20px 0;
+    height: 80px;
+}
+
+.card .remove{
+    float: right;
+    margin: 12px;
+    background: transparent;
+    color: #aaa;
+    border: solid 2px #aaa;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}

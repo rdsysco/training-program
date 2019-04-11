@@ -1,0 +1,8 @@
+.card-add > * {
+    background-color: transparent;
+    border: solid 1px #999;
+    height: 30px;
+    vertical-align: middle;
+    box-sizing: content-box;
+    padding: 0 10px;
+}
