@@ -22,26 +22,50 @@ public class breakingRecords {
     public void input()
     {
         this.readTheNumberOfGames();
+        int value=0;
         for (int i = 1; i <= this.theNumberOfGames; i++) {
-            System.out.format("Enter the score of %d game:", i);
-            this.scores.add(consoleIn.nextInt());
+            try {
+                System.out.format("Enter the score of %d game:", i);
+                value = this.consoleIn.nextInt();
+                if(this.isScoreValueEligible(value)){
+                    throw new Exception("Error: The entered score is out of range (0<number<10e8)");
+                }
+                this.scores.add(value);
+            }catch (Exception exp) {
+                String msg = "Error: The entered score is out of range (0<number<10e8)";
+                if (exp instanceof InputMismatchException) msg = "Error: Only the integer numbers are allowed";
+                System.out.println(msg);
+                this.consoleIn.next();
+                i--;
+                continue;
+            }
         }
+    }
+
+    private boolean isScoreValueEligible(int value) {
+        return value <= 0 || value > 10e8;
     }
 
     private void readTheNumberOfGames()
     {
+        int value=0;
         do {
             System.out.print("Enter the number of games:");
             try {
-                this.theNumberOfGames = consoleIn.nextInt();
-                if (this.theNumberOfGames < 2 || this.theNumberOfGames > 1000) {
+                value = consoleIn.nextInt();
+                if (this.theNumberOfGameIsEligible(value)) {
                     System.out.println("Error: The entered number is out of range (1<number<1000)");
                 }
             } catch (InputMismatchException exp) {
                 System.out.println("Error: Only the integer numbers are allowed");
                 this.consoleIn.next();
             }
-        } while (this.theNumberOfGames < 2 || this.theNumberOfGames > 1000);
+        } while (this.theNumberOfGameIsEligible(value));
+        this.theNumberOfGames=value;
+    }
+
+    private boolean theNumberOfGameIsEligible(int value) {
+        return value < 2 || value > 1000;
     }
 
     private void calculateBreakingRecords()
