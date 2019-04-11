@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import './Card.css'
 import {Stars} from "../stars";
+import LoggerHOC from '../../HOC/LoggerHOC';
 
-export class Card extends React.Component {
+class Card extends React.Component {
     changeRate(rate){
 
         const value = this.props.value;
@@ -53,4 +54,10 @@ Card.propTypes = {
 
 Card.defaultProps = {
     value: {}
+}
+
+const CardWithLogger = LoggerHOC(Card);
+
+export {
+    CardWithLogger as Card
 }
