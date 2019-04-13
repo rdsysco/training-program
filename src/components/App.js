@@ -15,7 +15,9 @@ import '../styles/App.css';
 // import Timeline from './time-line';
 // import historicDatesForSkiing from '../data/timeline-data';
 // import '../styles/star.css';
-import PopupButton from './menu-button';
+// import PopupButton from './menu-button';
+// import ContactList from './contacts-list';
+// import contacts from '../data/contacts';
 
 //const target = document.getElementById('root');
 class App extends Component {
@@ -76,10 +78,11 @@ class App extends Component {
         return (
         <div className="App">
             <header className="App-header">
-            <PopupButton hidden={true} txt="Toggle popup">
+            {/* <ContactList contacts={contacts}/> */}
+            {/* <PopupButton hidden={true} txt="Toggle popup">
                 <h1>Hidden Content</h1>
                 <p>This content wall start off hidden</p>
-            </PopupButton>
+            </PopupButton> */}
             {/* <CountryDropdown selected="Iran"/> */}
             {/* <RandomMeUsers count={100} /> */}
             {/* <PeopleList></PeopleList> */}
