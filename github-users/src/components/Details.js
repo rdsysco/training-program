@@ -28,7 +28,7 @@ class Details extends Component {
 
             data = data || [];
 
-            const item = data.find((item) => item.id === this.state.id);
+            const item = data.find((item) => item.id === this.state.id) || {};
 
             this.setState({ data: item });
         });
@@ -36,13 +36,33 @@ class Details extends Component {
 
     render(){
 
-        const Empty = () => <h1>Not found user details</h1>;
+        const NotFound = () => <h1>Not found user details</h1>;
 
-        const Found = () => <div>ddddd</div>;
+        const Found = () => (
+            <div>
+                <img src={this.state.data.actor.avatar_url}/>
+                <br/>
+                <br/>
+                <h3>
+                    {this.state.data.actor.display_login} ({this.state.data.id})
+                </h3>
+                <div>
+                    Created at <b>{this.state.data.created_at}</b>
+                </div>
+                <p>
+                    {this.state.data.payload.description}
+                </p>
+                <br/>
+                <pre>
+                    {JSON.stringify(this.state.data, 0, 4)}
+                </pre>
+                <br/>
+            </div>
+        );
 
         return(
-            <div className="user">
-                {this.state.data ? <Found/> : <Empty/>}
+            <div className="details">
+                {this.state.data ? <Found/> : <NotFound/>}
             </div>
         );
     }

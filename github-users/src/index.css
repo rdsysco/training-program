@@ -70,10 +70,6 @@ header a.home-link{
   outline: none;
 }
 
-.user{
-  text-align: center;
-}
-
 .user .title{
   text-align: center;
 }
@@ -93,6 +89,21 @@ header a.home-link{
   width: 200px;
   margin-bottom: 10px;
   display: inline-block;
+}
+
+.details{
+  text-align: center;
+}
+
+.details img{
+  width: 10rem;
+  height: 10rem;
+}
+
+.details pre{
+  text-align: left;
+  width: 680px;
+  margin: 0 auto;
 }
 
 footer{
