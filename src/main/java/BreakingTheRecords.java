@@ -11,7 +11,6 @@ import com.google.inject.Injector;
 
 public class BreakingTheRecords {
     public static void main(String[] args){
-
         short gameCount;
         String inputScores;
 
@@ -21,38 +20,41 @@ public class BreakingTheRecords {
         Scanner gameCountInput = new Scanner(System.in);
         Scanner scoreInput = new Scanner(System.in);
 
-        Injector injector = Guice.createInjector(new AppServiceProvider());
+        Injector injector = Guice.createInjector(new BreakingTheRecordsServiceProvider());
         GameFactory gameFactory = injector.getInstance(GameFactory.class);
         ScoreFactory scoreFactory = new ScoreFactory();
 
 
+        do {
 
-        System.out.println("Please insert count of the games: ");
-        gameCount = Short.valueOf(gameCountInput.next());
+            System.out.println("Please insert count of the games (0 for exit): ");
+            gameCount = Short.valueOf(gameCountInput.next());
 
-        games = gameFactory.make(gameCount);
-        if (games.isEmpty()){
-            System.out.println("The game count is out of range");
-            System.exit(0);
-        }
+            games = gameFactory.make(gameCount);
+            if (games.isEmpty()){
+                System.out.println("The game count is out of range");
+                System.exit(0);
+            }
 
-        System.out.println("Please insert Scores: ");
-        inputScores = scoreInput.nextLine();
+            System.out.println("Please insert Scores: ");
+            inputScores = scoreInput.nextLine();
 
-        List<Integer> arrayOfScores = Arrays.stream(inputScores.split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+            List<Integer> arrayOfScores = Arrays.stream(inputScores.split(" "))
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
 
-        if (arrayOfScores.size() != gameCount){
-            System.out.println("Count of the games dose not match with scores count");
-            System.exit(0);
-        }
+            if (arrayOfScores.size() != gameCount){
+                System.out.println("Count of the games dose not match with scores count");
 
-        scores = scoreFactory.make(arrayOfScores, games);
+            }
 
-        ReportCard reportCard = new ReportCard(scores);
+            scores = scoreFactory.make(arrayOfScores, games);
 
-        System.out.println(reportCard.report().get(0) + " " + reportCard.report().get(1));
+            ReportCard reportCard = new ReportCard(scores);
 
+            System.out.println(reportCard.report().get(0) + " " + reportCard.report().get(1));
+        }while (gameCount > 0);
     }
+
+
 }

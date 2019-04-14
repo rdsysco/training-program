@@ -1,8 +1,8 @@
-import breakingTheRecords.Validation;
-import breakingTheRecords.ValidationInterface;
+package breakingTheRecords;
+
 import com.google.inject.AbstractModule;
 
-public class AppServiceProvider extends AbstractModule{
+public class BreakingTheRecordsServiceProvider extends AbstractModule{
     @Override
     protected void configure() {
         bind(ValidationInterface.class).to(Validation.class);
