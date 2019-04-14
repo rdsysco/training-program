@@ -15,7 +15,7 @@ const routing = (
         <Switch>
             <Route exact path="/" component={ Home }/>
             <Route path="/colorapp" component={ ColorApp }/>
-            <Route path="/userapp" component={ UserApp }/>
+            <Route path="/user/:user" component={ UserApp }/>
             <Route component={ Notfound }/>
         </Switch>
     </Router>

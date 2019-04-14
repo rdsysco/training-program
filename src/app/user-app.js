@@ -3,19 +3,18 @@ import User from './user';
 
 class UserApp extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = { data: null, loading: false };
+        this.props = props;
     }
 
     componentWillMount() {
-        const user = 'amirtvkli';
+        const { user } = this.props.match.params;
         this.setState({loading: true});
         fetch(`https://api.github.com/users/${user}`)
             .then(response => response.json())
             .then(data => this.setState({data,  loading: false}))
-
-            console.log(this.state.loading);
     }
 
     render() {

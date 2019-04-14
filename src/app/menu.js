@@ -6,7 +6,7 @@ const Menu = () =>
         <ul>
             <li><Link to="">Home</Link></li>
             <li><Link to="/colorapp">Color App</Link> </li>
-            <li><Link to="/userapp">User App</Link></li>
+            <li><Link to="/user/amirtvkli">User App</Link></li>
         </ul>
 </div>;
 
