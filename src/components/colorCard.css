@@ -1,0 +1,25 @@
+.card{
+    display: inline-block;
+    width: 300px;
+    box-shadow: 1px 1px 1px #CCC;
+    margin-left:10px;
+    margin-top:2%;
+}
+.card-header{
+    height: 200px;
+}
+.card-content{
+    height: 100px;
+    background:#ccc;
+}
+.card-footer{
+    height: 100px
+}
+.card-header{
+}
+.remove-btn{
+    float: right;
+    margin-right: 6%;
+    background: #fff;
+    color:#000;
+}

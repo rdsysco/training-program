@@ -1,0 +1,6 @@
+input[type="text"] {
+    width: 80%;
+    border-left: transparent;
+    border-right: transparent;
+    border-top:transparent;
+}
