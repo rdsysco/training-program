@@ -31,6 +31,10 @@ text-align: center;
     height: 80px;
 }
 
+.box-close{
+    float: right;
+}
+
 .star{
     width: 20px;
     height:20px;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AddColorForm from './add-color-form';
 import ColorsList from './colors-list';
+import { v4 } from 'uuid';
+
 import '../styles/color-app.css';
 
 class ColorApp extends Component {
@@ -8,9 +10,12 @@ class ColorApp extends Component {
     constructor(){
         super();
         this.handleAddColor = this.handleAddColor.bind(this);
+        this.onRemoveColor = this.onRemoveColor.bind(this);
+
         this.state = {
             colors:[
                 {
+                    id: v4(),
                     text: 'blue', 
                     colorValue: '#00ff00',
                     rate: 3
@@ -20,9 +25,18 @@ class ColorApp extends Component {
     }
     
     handleAddColor(text, value) {
-        const color = {text,colorValue: value};
+        const color = {
+            text,
+            colorValue: value,
+            id: v4(),
+            rate: 0
+        };
         this.setState({colors:[...this.state.colors,color]});
-        console.log(this.state.colors);
+    }
+
+    onRemoveColor(colorId){
+        const colors =  this.state.colors.filter(color => color.id !== colorId);
+        this.setState({colors});
     }
 
     onRateChange(value) {
@@ -35,7 +49,7 @@ class ColorApp extends Component {
             <div className="container">
                 <div className="color-app">
                     <AddColorForm onAddColor={this.handleAddColor}/>
-                    <ColorsList  colors={colors} onRateChange={this.onRateChange}/>
+                    <ColorsList  colors={colors} onRateChange={this.onRateChange} onRemoveColor={this.onRemoveColor}/>
                 </div>
             </div>
         )

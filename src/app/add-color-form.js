@@ -7,6 +7,9 @@ const AddColorForm = ({text="title",value="#000000",onAddColor}) => {
     const onSubmit = e => {
         e.preventDefault();
         onAddColor(textInput.value, valueInput.value);
+        textInput.value = '';
+        textInput.focus();
+        valueInput.value = '#000000';
     }
 
     return(  
