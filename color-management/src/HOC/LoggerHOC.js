@@ -13,3 +13,7 @@ const LoaderHOC = (WrappedComponent) => {
 }
 
 export default LoaderHOC;
+
+export {
+    LoaderHOC
+}
