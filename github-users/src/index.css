@@ -12,3 +12,98 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+header{
+  padding: 1em 1.25em;
+}
+
+header .user-logo img{
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  vertical-align: middle;
+  border: solid 1px #aaa;
+  padding: 2px;
+}
+
+header .title{
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+header a.home-link{
+  float: right;
+  padding: 0.85rem;
+  padding-right: 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.home{
+  min-height: 80vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home img{
+  width: 20em;
+}
+
+.home input{
+  border-radius: 5em;
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  border-color: rgba(223,225,229,0);
+  width: 50%;
+  height: 3.5em;
+  max-width: 640px;
+  min-width: 320px;
+  margin-top: 1em;
+  padding: 1em 2em;
+  box-sizing: border-box;
+}
+
+.home input:focus, 
+.home input:focus{
+  outline: none;
+}
+
+.user{
+  text-align: center;
+}
+
+.user .title{
+  text-align: center;
+}
+
+.user ul{
+  list-style: none;
+  padding: 0;
+}
+
+.user ul li{
+  text-align: center;
+}
+
+.user ul li span{
+  width: 100px;
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+footer{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 0.5em;
+  color: gray;
+  background-color: #efefef;
+  font-size: 0.85em;
+  border-top: solid 1px #ddd;
+}
