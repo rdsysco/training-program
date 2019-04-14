@@ -1,0 +1,19 @@
+{
+    "cards": [
+        {
+            "title": "ocean at dusk",
+            "color":"blue",
+            "star":5
+        },
+        {
+            "title": "lawn",
+            "color":"green",
+            "star":3
+        },
+        {
+            "title": "bright red",
+            "color": "red",
+            "star": 0
+        }
+    ]
+}
