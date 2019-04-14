@@ -33,11 +33,25 @@ class User extends Component {
                     {this.state.items && this.state.items.lenght ? `Events for '${this.state.username}' GitHub user` : `GitHub user '${this.state.username}' not found`}
                 </h2>
                 <ul>
+                    <li>
+                        <span>
+                            <b>#</b>                            
+                        </span>
+                        <span >
+                            <b>Event name</b> 
+                        </span>
+                        <span>
+                            <b>Created At</b> 
+                        </span>
+                        <span>
+                            <b>Action</b> 
+                        </span>
+                    </li>
                     {
                         this.state.items.map((item, index) => (
                             <li key={index}>
                                 <span>
-                                    {index + 1} )
+                                    {index + 1}
                                 </span>
                                 <span >
                                     {item.type}
