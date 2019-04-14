@@ -5,9 +5,9 @@ const User = ({avatar_url='http://loremflickr.com/235/235/men', name="Amir Tavak
     <div className="user-detail__avatar">
         <img src={avatar_url} alt='avatar'/>
     </div>
-    <div className="user-detail__name">
+    <h1 className="user-detail__name">
         {name}
-    </div>
+    </h1>
     <div className="user-detail__location">
         location: {location}
     </div>
