@@ -1,0 +1,18 @@
+# You may also need to add files/directories created by your IDE
+/.idea
+/.vscode
+/.tern-project
+*.tern-port
+.ac-php-conf.json
+.ignore
+*~
+*.swp
+*.swo
+.#*
+/GPATH
+/GRTAGS
+/GTAGS
+
+training-program.iml
+
+/out
