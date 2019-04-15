@@ -1,0 +1,13 @@
+/**
+ * Issue action types
+ */
+
+const ISSUE_LIST_BEGIN = "APP_ISSUE_LIST_BEGIN";
+const ISSUE_LIST_SUCCESS = "APP_ISSUE_LIST_SUCCESS";
+const ISSUE_LIST_FAIL = "APP_ISSUE_LIST_FAIL";
+
+export default {
+    ISSUE_LIST_BEGIN,
+    ISSUE_LIST_SUCCESS,
+    ISSUE_LIST_FAIL
+}
