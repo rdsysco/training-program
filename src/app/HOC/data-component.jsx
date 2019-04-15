@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
+import Loading from '../loading';
 
-const DataComponent = (ComposedComponent, url) => 
+const DataComponent = (ComposedComponent) => 
     class DataComponent extends Component {
         constructor(props) {
             super(props);
@@ -9,24 +10,27 @@ const DataComponent = (ComposedComponent, url) =>
                 loading: false,
                 loaded: false
             }
+            const { url } = props;
+            this.url = url;
         }
 
         componentWillMount() {
             this.setState({loading: true});
-            fetch(url)
+            fetch(this.url)
                 .then(response => response.json())
                 .then(data => this.setState({
                     loaded: true,
                     loading: false,
                     data
                 }))
+                .catch(err => console.log(err));
         }
 
         render() {
             return (
                 <div className="data-component">
                     {(this.state.loading) ?
-                        <div>Loading...</div> :
+                        <Loading/> :
                         <ComposedComponent {...this.state} {...this.props}/>
                     }
                 </div>

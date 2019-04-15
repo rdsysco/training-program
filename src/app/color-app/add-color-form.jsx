@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 
 const AddColorForm = ({text="title",value="#000000",onAddColor}) => {
 
