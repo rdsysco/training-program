@@ -6,9 +6,8 @@ import java.util.List;
 
 public class CalculationNumbers {
 
-    List<Integer> numberSorted;
+    private List<Integer> numberSorted;
     private int sum;
-
 
     public List<Integer> getNumberSorted() {
         return numberSorted;

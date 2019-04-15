@@ -32,11 +32,11 @@ public class PlusMinus {
         System.out.printf("The fractions of the elements that are zeros is %.6f%n", fractions[2]);
     }
 
-    public int[] getNumbers(String numbersStr,int numbersLength) {
+    public int[] getNumbers(String numbersStr, int numbersLength) {
         String[] spitedNumbers = numbersStr.trim().split("\\s+");
         if (spitedNumbers.length != numbersLength) {
             System.out.printf("Please enter %d numbers.%n", numbersLength);
-           return null;
+            return null;
         }
         int[] numbers = new int[numbersLength];
         for (int i = 0; i < numbersLength; i++) {
@@ -49,6 +49,5 @@ public class PlusMinus {
         }
         return numbers;
     }
-
 
 }

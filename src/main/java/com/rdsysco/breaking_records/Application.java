@@ -6,7 +6,9 @@ import java.util.Scanner;
  * Created by RayaDyar on 4/10/2019.
  */
 public class Application {
+
     public static void main(String[] args) {
+
         BreakingRecords breakingRecords = new BreakingRecords();
         Validation validation = new Validation();
         Scanner scanner = new Scanner(System.in);

@@ -23,7 +23,7 @@ public class BreakingRecords {
         return new int[]{numbersOfHighest, numbersOfLowest};
     }
 
-    public void printResult(int...records) {
+    public void printResult(int... records) {
         System.out.println(records[0] + " " + records[1]);
     }
 

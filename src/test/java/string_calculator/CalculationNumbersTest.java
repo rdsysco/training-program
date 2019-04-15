@@ -16,15 +16,15 @@ public class CalculationNumbersTest {
         CalculationNumbers calculationNumbers = new CalculationNumbers();
         Method sortNumbersMethod = CalculationNumbers.class.getDeclaredMethod("sortNumbers", List.class);
         sortNumbersMethod.setAccessible(true);
-        List<Integer> numbers =new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
         numbers.add(-1);
         numbers.add(1);
         numbers.add(0);
         numbers.add(-1);
         numbers.add(2);
         numbers.add(3);
-        List<Integer> sortedNumberActual= (List<Integer>) sortNumbersMethod.invoke(calculationNumbers,numbers);
-        List<Integer> sortedNumberAssertion=new ArrayList<>();
+        List<Integer> sortedNumberActual = (List<Integer>) sortNumbersMethod.invoke(calculationNumbers, numbers);
+        List<Integer> sortedNumberAssertion = new ArrayList<>();
         sortedNumberAssertion.add(-1);
         sortedNumberAssertion.add(-1);
         sortedNumberAssertion.add(0);
@@ -35,9 +35,9 @@ public class CalculationNumbersTest {
     }
 
     @Test
-    public void calculate()  {
+    public void calculate() {
         CalculationNumbers calculationNumbers = new CalculationNumbers();
-        List<Integer> numbers =new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
         numbers.add(-1);
         numbers.add(1);
         numbers.add(0);
@@ -45,9 +45,9 @@ public class CalculationNumbersTest {
         numbers.add(2);
         numbers.add(3);
         calculationNumbers.calculate(numbers);
-        int sumActual= calculationNumbers.getSum();
-        int sumAssertion=4;
+        int sumActual = calculationNumbers.getSum();
+        int sumAssertion = 4;
         System.out.println(sumActual);
-        Assertions.assertTrue(sumActual==sumAssertion);
+        Assertions.assertTrue(sumActual == sumAssertion);
     }
 }

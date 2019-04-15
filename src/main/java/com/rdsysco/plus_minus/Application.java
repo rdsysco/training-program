@@ -23,7 +23,7 @@ public class Application {
         int[] numbers;
         boolean numbersValid = false;
         do {
-            System.out.printf("Enter %s numbers,use space for separating them:%n",numbersLengthStr);
+            System.out.printf("Enter %s numbers,use space for separating them:%n", numbersLengthStr);
             String numbersStr = scanner.nextLine();
             numbers = plusMinus.getNumbers(numbersStr, Integer.parseInt(numbersLengthStr));
             if (numbers != null) {
