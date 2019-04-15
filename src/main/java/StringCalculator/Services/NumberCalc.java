@@ -20,7 +20,7 @@ public class NumberCalc implements INumberCalc {
         return numberArray;
     }
 
-    private int[] getArrayNumberOfArrayList(ArrayList<Number> numberObjectList) {
+    public int[] getArrayNumberOfArrayList(ArrayList<Number> numberObjectList) {
         int[] numberArray = new int[numberObjectList.size()];
         int index = 0;
         for (Number numberObj : numberObjectList) {
