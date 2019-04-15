@@ -3,7 +3,7 @@ import AddColorForm from './add-color-form';
 import ColorsList from './colors-list';
 import { v4 } from 'uuid';
 
-import '../styles/color-app.scss';
+import '../../styles/color-app.scss';
 
 class ColorApp extends Component {
 

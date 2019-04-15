@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import UserApp from './app/user-app';
+import UserApp from './app/user/user-app';
 import Menu from './app/menu';
-import Home from './app/home';
-import ColorApp from './app/color-app';
+import Home from './app/home/home';
+import ColorApp from './app/color-app/color-app';
 import { Route, BrowserRouter as Router , Switch} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import Notfound from './app/notfound';

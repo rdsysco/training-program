@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import User from './user';
-import Loading from './loading';
+import Loading from '../loading';
 
 class UserApp extends Component {
 
