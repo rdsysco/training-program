@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import User from './user';
+import Loading from './loading';
 
 class UserApp extends Component {
 
@@ -19,7 +20,7 @@ class UserApp extends Component {
 
     render() {
         const { data, loading } = this.state;
-        return (!loading) ? <User {...data}/> : 'Loading...';
+        return (!loading) ? <User {...data}/> : <Loading/>;
     }
 }
 

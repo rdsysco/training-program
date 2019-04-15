@@ -1,6 +1,8 @@
 import React from 'react';
 import Color from './color';
 
+
+
 const ColorsList = ({colors=[], onRateChange, onRemoveColor}) => 
     <div className="color-list">
         {colors.map((color, i) =>

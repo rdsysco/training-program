@@ -18,7 +18,7 @@ class StarsList extends Component{
         return(
         <div >
             {[...Array(5)].map((value, i) => <Star key={i} isOn={ i<rateValue ? true : false } starValue={i} onRateClick={this.onRateChange}/>)}
-            {rateValue} of 5
+            {/* <p>{rateValue} of 5</p> */}
         </div> 
         )
     }

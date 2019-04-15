@@ -5,9 +5,11 @@
   "dependencies": {
     "d3": "^5.9.2",
     "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
+    "sass-loader": "^7.1.0",
     "uuid": "^3.3.2"
   },
   "scripts": {

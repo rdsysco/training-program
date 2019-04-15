@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const AddColorForm = ({text="title",value="#000000",onAddColor}) => {
 
@@ -13,10 +15,10 @@ const AddColorForm = ({text="title",value="#000000",onAddColor}) => {
     }
 
     return(  
-        <form onSubmit={onSubmit}>
-            <input ref={ input => textInput = input }  type="text" placeholder="title color..."></input>
-            <input ref={ input => valueInput = input }  type="color"></input>
-            <button type="submit">Add</button>
+        <form className="add-form" onSubmit={onSubmit}>
+            <input className='add-form__input' ref={ input => textInput = input }  type="text" placeholder="Title color..."></input>
+            <input className='add-form__colorPicker' ref={ input => valueInput = input }  type="color"></input>
+            <Button variant="contained" color="primary" type="submit">Add</Button>
         </form>
     )
 }

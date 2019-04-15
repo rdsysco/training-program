@@ -3,7 +3,7 @@ import AddColorForm from './add-color-form';
 import ColorsList from './colors-list';
 import { v4 } from 'uuid';
 
-import '../styles/color-app.css';
+import '../styles/color-app.scss';
 
 class ColorApp extends Component {
 
@@ -16,8 +16,8 @@ class ColorApp extends Component {
             colors:[
                 {
                     id: v4(),
-                    text: 'blue', 
-                    colorValue: '#00ff00',
+                    text: 'Brown', 
+                    colorValue: '#562400',
                     rate: 3
                 }
             ]
