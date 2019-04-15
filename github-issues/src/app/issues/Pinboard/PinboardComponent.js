@@ -18,14 +18,20 @@ function PinCardComponent (props) {
 
 const PinboardComponent = function(props) {
 
+    if (props.items.length) {
 
-    return (
-        <div>
+        return (
+            <div>
             {
                 props.items.map((item) => <PinCardComponent {...item} />)
             }
-        </div>
-    )
+            </div>
+        )
+
+    }
+    else {
+        return null
+    }
 }
 
 PinboardComponent.propTypes = {

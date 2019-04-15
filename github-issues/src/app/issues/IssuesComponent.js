@@ -12,6 +12,9 @@ class IssuesComponent extends React.Component {
         let owner = this.props.issues.data.owner;
         let repo = this.props.issues.data.repo;
 
+
+        document.title = `Issues . ${owner}/${repo}`
+
         this.props.issueList(owner, repo);
     }
 
@@ -29,6 +32,5 @@ class IssuesComponent extends React.Component {
         // return <div>{JSON.stringify(this.props)}</div>
     }
 }
-
 
 export default IssuesComponent;

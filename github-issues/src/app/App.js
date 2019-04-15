@@ -4,7 +4,7 @@ import IssueContainer from "./issues/IssuesContainer"
 
 function App() {
     return (
-        <div><IssueContainer /></div>
+        <div className="container w-75 border text-truncate"><IssueContainer /></div>
     )
 }
 
