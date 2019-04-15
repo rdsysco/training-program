@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import UserApp from './app/user/user-app';
-import Menu from './app/menu';
 import Home from './app/home/home';
 import ColorApp from './app/color-app/color-app';
 import { Route, BrowserRouter as Router , Switch} from "react-router-dom";
@@ -11,7 +10,7 @@ import Notfound from './app/notfound';
 
 const routing = (
     <Router>
-        <Menu/>
+        {/* <Menu/> */}
         <Switch>
             <Route exact path="/" component={ Home }/>
             <Route path="/colorapp" component={ ColorApp }/>

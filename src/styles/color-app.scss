@@ -1,10 +1,37 @@
 body{
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'open sans';
+}
+#root{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 .app-link{
-    color: white;
+    color: rgb(5, 178, 184);
     text-decoration: none;
-    margin-right: 28px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin: 20px 0px;
+
+    .app-link__icon{
+        margin-right: 15px;
+    }
+    .app-link__text{
+
+    }
+}
+.top-fix{
+    position: absolute;
+    left: 25px;
+    top: 0px;
+}
+.menu-container{
+    margin-top: 40px;
 }
 .add-form{
     display: flex;
@@ -13,7 +40,7 @@ body{
     align-items: stretch;
     width: 330px;
     justify-content: space-between;
-
+    
     .add-form__input{
         font: inherit;
         width: 100%;
@@ -22,7 +49,7 @@ body{
         margin: 0;
         padding: 10px;
         background: none;
-
+        
         &:focus{
             outline-offset: -2px;
         }
@@ -35,7 +62,7 @@ body{
         background-color: transparent;
         border-radius: 50%;
     }
-
+    
 }
 
 .add-form > * {
@@ -43,7 +70,6 @@ body{
 }
 
 .container{
-    background-color: rgb(245, 245, 245);
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -82,7 +108,7 @@ body{
                     background-color: rgb(179, 179, 179);
                     display: inline-block;
                     margin-left: 3px;
-
+                    
                     cursor: pointer;
                     height: 25px;
                     width: 25px;
@@ -90,16 +116,16 @@ body{
                     float: left;
                     background-color: grey;
                     clip-path: polygon(
-                        50% 0%,
-                        63% 38%,
-                        100% 38%,
-                        69% 59%,
-                        82% 100%,
-                        50% 75%,
-                        18% 100%,
-                        31% 59%,
-                        0% 38%,
-                        37% 38%
+                    50% 0%,
+                    63% 38%,
+                    100% 38%,
+                    69% 59%,
+                    82% 100%,
+                    50% 75%,
+                    18% 100%,
+                    31% 59%,
+                    0% 38%,
+                    37% 38%
                     );
                 }
                 .star.on{
@@ -128,4 +154,24 @@ body{
         
     }
 }
-
+.home-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 1200px;
+    .home-container__image{
+        img{
+            height: 300px;
+            margin-left: -25px;
+        }
+        margin-right:70px;
+    }
+    
+    .home-container__content{
+        width: 600px;
+        p{
+            text-align: justify;
+        }
+    }
+}
+    

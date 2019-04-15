@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import User from './user';
 import Loading from '../loading';
+import BackToHome from '../navigation/back-to-home';
 
 class UserApp extends Component {
 
@@ -20,7 +21,12 @@ class UserApp extends Component {
 
     render() {
         const { data, loading } = this.state;
-        return (!loading) ? <User {...data}/> : <Loading/>;
+        return (
+            <div>
+            <BackToHome/>
+            {(!loading) ? <User {...data}/> : <Loading/>}
+            </div>
+        );
     }
 }
 

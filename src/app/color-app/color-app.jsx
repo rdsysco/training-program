@@ -4,6 +4,7 @@ import ColorsList from './colors-list';
 import { v4 } from 'uuid';
 
 import '../../styles/color-app.scss';
+import BackToHome from '../navigation/back-to-home';
 
 class ColorApp extends Component {
 
@@ -47,7 +48,9 @@ class ColorApp extends Component {
         const {colors} = this.state; 
         return(
             <div className="container">
+                <BackToHome/>
                 <div className="color-app">
+                    <h1>Color List App</h1>
                     <AddColorForm onAddColor={this.handleAddColor}/>
                     <ColorsList  colors={colors} onRateChange={this.onRateChange} onRemoveColor={this.onRemoveColor}/>
                 </div>
