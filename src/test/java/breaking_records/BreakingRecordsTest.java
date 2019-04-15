@@ -1,16 +1,16 @@
 package breaking_records;
 
 import com.rdsysco.breaking_records.BreakingRecords;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 
 public class BreakingRecordsTest {
 
+    private BreakingRecords breakingRecords = new BreakingRecords();
+
     @Test
     public void getScores() {
-        BreakingRecords breakingRecords = new BreakingRecords();
         String scoresStr="10 5 20 20 4 5 2 25 1";
         int[] scoresActual = breakingRecords.getScores(scoresStr);
         int[] scoresAssertion = {10,5,20,20,4,5,2,25,1};
@@ -19,7 +19,6 @@ public class BreakingRecordsTest {
 
     @Test
     public void calculate() {
-        BreakingRecords breakingRecords = new BreakingRecords();
         int[] scores = {10,5,20,20,4,5,2,25,1};
         int[] recordActual=breakingRecords.calculate(scores);
         int[] recordAssertion = {2,4};

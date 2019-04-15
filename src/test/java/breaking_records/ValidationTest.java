@@ -2,11 +2,13 @@ package breaking_records;
 
 import com.rdsysco.breaking_records.Validation;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ValidationTest {
 
     @Test
+    @DisplayName("numbersOfScoresMoreThanHighestNumber")
     public void validateNumbersOfScores_numbersOfScoresMoreThanHighestNumber() {
         Validation validation=new Validation();
         int numbersOfScores=2000;
