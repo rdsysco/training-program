@@ -1,10 +1,12 @@
 import React from 'react';
 const ColorInput = props => {
     const ColorInputStyle = {
-        width: '50px',
-        height: '50px',
+        width: '25px',
+        height: '25px',
         padding: '0px',
-        margin: '20px'
+        margin: '5px',
+        backgroundColor: '#fff',
+        border:'none'
     }
 
     const onChange = e => {props.handelChange(e.target.value)};

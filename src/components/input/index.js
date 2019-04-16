@@ -2,8 +2,7 @@ import React from 'react';
 
 const Input = (props) => {
     const inputStyle = {
-        margin: '40px',
-        padding: '10px',
+        marginTop: '40px',
         height: '25px',
         width: '300px',
         border: '1px solid #aaa',

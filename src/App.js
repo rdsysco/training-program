@@ -10,40 +10,41 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      colorTitle: {
-        text: ''
-      },
-      colorValues: {
-        color:''
-      },
-      cardList: {
-        cardColor:''
-      }
-      
+      cardList: [
+        {
+          title: 'unTitle',
+          colorValue: '#000000',
+          rate: 0
+        }
+      ]
     };
+
+    this.color = {title:'',colorValue: '', rate: 3};
 
     this.handelColorTitle = this.handelColorTitle.bind(this);
     this.handelColorValue = this.handelColorValue.bind(this);
     this.handelCardColor = this.handelCardColor.bind(this);
+    
   }
 
   handelColorTitle(title){
-    this.setState({colorTitle: {
-      text: title
-      }
-    })
+    // this.setState({colorTitle: {
+    //   text: title
+    //   }
+    // })
+    this.color.title = title;
   }
   handelColorValue(colorValue){
-    this.setState({colorValues: {
-      color: colorValue
-      }
-    })
+    // this.setState({colorValues: {
+    //   color: colorValue
+    //   }
+    // })
+    this.color.colorValue = colorValue;
   }
   handelCardColor(cardColor){
-    this.setState({cardList: {
-      cardColor: cardColor
-      }
-    })
+    this.setState({cardList:[...this.state.cardList, {...this.color}]});
+    this.color = {};
+
   }
 
   render() {
@@ -58,10 +59,10 @@ class App extends Component {
           <div>
             <Input handelChange={this.handelColorTitle} />
             <ColorInput handelChange={this.handelColorValue} />
-            <Button onClick={()=> console.log(this.state.colorValues.color)} text="Add"></Button>
+            <Button onClick={this.handelCardColor} text="Add"></Button>
           </div>  
           <div>
-            <CardList></CardList>
+            <CardList cards={this.state.cardList}></CardList>
           </div>
       </div>
     );

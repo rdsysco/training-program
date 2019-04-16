@@ -3,11 +3,11 @@ import React from 'react';
 class Count extends React.Component {
     render(){
         return (
-            <div>
-                <label></label>
-                <span>of</span>
-                <label></label>
-                <span>Starts</span>
+            <div style={{paddingTop:'10px',fontFamily:'san-serif'}}>
+                <span>{this.props.rate}</span>
+                <span> of </span>
+                <span> 5 </span>
+                <span> Starts </span>
             </div>
         )
     }

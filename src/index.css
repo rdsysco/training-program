@@ -12,3 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.rate-star{
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  margin: 3px;
+  display: inline-block;
+  border-radius: 50% 
+}
+.isOn{
+  background-color:rgb(196, 46, 188);
+}
