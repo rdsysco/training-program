@@ -12,6 +12,7 @@ class App extends Component {
   }
   componentDidMount() {
     setTimeout(() => {
+      this.setState({ src: 'https://avatars3.githubusercontent.com/u/43126626?s=400&v=4' })
       this.setState({ src: 'https://avatars2.githubusercontent.com/u/12845?s=96&v=4' })
     }, 5000);
   }
@@ -27,8 +28,8 @@ class App extends Component {
           aspectRatio={2.3}
           width="128px"
           height={128}
+          intersectionDelay={500}
           src={this.state.src}
-          intersection={false}
           lazySrc={img} />
                     <br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a<br/>a
                     
@@ -39,6 +40,7 @@ class App extends Component {
           aspectRatio={2.3}
           width="128px"
           height={128}
+          intersectionDelay={500}
           src={this.state.src}
           lazySrc={img} />
 

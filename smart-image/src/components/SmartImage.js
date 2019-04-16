@@ -57,6 +57,8 @@ export class SmartImage extends Component {
         this.observer = undefined;
 
         this.state = this.calculatedOptions();
+
+        this.timeout = undefined;
     }
 
     calculatedGrid() {
@@ -160,29 +162,6 @@ export class SmartImage extends Component {
         return result;
     }
 
-    init() {
-
-        const { intersection } = this.state;
-
-        if (intersection && this.intersectionIsAvailable()) {
-
-            this.observer = new IntersectionObserver((entries) => {
-
-                const entry = entries[0];
-
-                const { isIntersecting } = entry;
-
-                isIntersecting && this.load();
-            });
-
-            this.observer.observe(this.element.current);
-        }
-        else {
-
-            this.load();
-        }
-    }
-
     intersectionIsAvailable() {
 
         return typeof window.IntersectionObserver !== undefined;
@@ -195,65 +174,64 @@ export class SmartImage extends Component {
 
     load() {
 
-        let { src, lazySrc, defaultSrc, delay } = this.state;
+        const { intersection, intersectionDelay } = this.state;
 
-        const image = new Image();
+        if (intersection && this.intersectionIsAvailable()) {
 
-        const now = Date.now();
+            this.observer = this.observer || new IntersectionObserver((entries) => {
 
-        image.onload = () => {
-            
-            this.intersectionDisconnect();
+                const entry = entries[0];
 
-            const source = src || defaultSrc;
+                const { isIntersecting } = entry;
 
-            if (delay) {
+                clearTimeout(this.timeout);
 
-                let duration = Date.now() - now;
+                if (isIntersecting) {
 
-                delay = delay > duration ? delay - duration : 0;
+                    this.timeout = setTimeout(() => {
+
+                        this.intersectionDisconnect();
+    
+                        this.loadImage();
+
+                    }, intersectionDelay || 0);
+                }
+            });
+
+            this.observer.observe(this.element.current);
+        }
+        else {
+
+            this.loadImage();
+        }
+    }
+
+    loadImage() {
+
+        let { src, lazySrc, defaultSrc, calculatedSrc, delay } = this.state;
+
+        if (src && src === calculatedSrc) return;
+
+        const
+            now = Date.now(),
+            image = new Image(),
+            done = (src) => {
+
+                const duration = Date.now() - now;
+
+                const remaining = delay > duration ? delay - duration : 0;
 
                 setTimeout(() => {
 
                     this.setState({
-                        calculatedSrc: source
+                        calculatedSrc: src
                     });
-                }, delay);
-            }
-            else {
+                }, remaining);
+            };
 
-                this.setState({
-                    calculatedSrc: source
-                });
-            }
-        };
+        image.onerror = () => done(defaultSrc || src);
 
-        image.onerror = () => {
-
-            this.intersectionDisconnect();
-
-            const source = defaultSrc || src;
-
-            if (delay) {
-
-                let duration = Date.now() - now;
-
-                delay = delay > duration ? delay - duration : 0;
-
-                setTimeout(() => {
-
-                    this.setState({
-                        calculatedSrc: source
-                    });
-                }, delay);
-            }
-            else {
-
-                this.setState({
-                    calculatedSrc: source
-                });
-            }
-        };
+        image.onload = () => done(src || defaultSrc);
 
         image.src = src || defaultSrc;
 
@@ -285,29 +263,36 @@ export class SmartImage extends Component {
 
     componentDidMount() {
 
-        this.init();
-    }
-
-    __componentWillReceiveProps(...args) {
-
-        this.updateOptions();
-
         this.load();
-
-        console.log(9, this, ...args)
     }
 
-    componentWillUnmount(){
+    componentWillReceiveProps() {
+
+        // ???
+        setTimeout(() => {
+
+            this.updateOptions();
+
+            this.loadImage();
+        }, 0)
+    }
+
+    componentWillUnmount() {
 
         this.intersectionDisconnect();
     }
 
     render() {
 
-        const { calculatedSrc, width, height } = this.state;
+        const { calculatedSrc, width, height, alt } = this.state;
 
         return (
-            <img ref={this.element} src={calculatedSrc} alt="aaa" width={width} height={height} />
+            <img
+                ref={this.element}
+                src={calculatedSrc}
+                alt={alt}
+                width={width}
+                height={height} />
         );
     }
 }
