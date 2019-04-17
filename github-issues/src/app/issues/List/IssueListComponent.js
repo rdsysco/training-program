@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "./IssueList.css";
+import IssueListItem from "./IssueListItemComponent";
+import IssueListHeader from "./IssueListHeaderComponent";
 
 const IssueListComponent = function(props) {
 
     return (
-        <div className="w-100">
-            <div className="d-flex d-flex-row">
-                Header
-            </div>
+        <div className="w-100 border">
+            <IssueListHeader />
             <div>
                 {
                     props.items.map((item) => {
-                        return <div key={item.id}>{JSON.stringify(item)}</div>
+                        return <IssueListItem key={item.id} {...item} />
                     })
                 }
             </div>
