@@ -18,6 +18,12 @@ const Menu = () =>
                         User
                 </Typography>
             </Link>
+            <Link className="app-link" to="/countdown">
+                <Typography variant="h6" color="inherit" >
+                        <Icon className='app-link__icon'>timer</Icon>
+                        Countdown
+                </Typography>
+            </Link>
         </div>
 
 export default Menu;

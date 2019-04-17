@@ -7,6 +7,8 @@ import ColorApp from './app/color-app/color-app';
 import { Route, BrowserRouter as Router , Switch} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import Notfound from './app/notfound';
+import Countdown from './components/count-down/countdown-view';
+// import './components/count-down/countdown-render';
 
 const routing = (
     <Router>
@@ -15,6 +17,7 @@ const routing = (
             <Route exact path="/" component={ Home }/>
             <Route path="/colorapp" component={ ColorApp }/>
             <Route path="/user/:user" component={ UserApp }/>
+            <Route path="/countdown" component= { Countdown}/>
             <Route component={ Notfound }/>
         </Switch>
     </Router>

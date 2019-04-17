@@ -8,23 +8,23 @@ import BackToHome from '../navigation/back-to-home';
 
 class ColorApp extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.handleAddColor = this.handleAddColor.bind(this);
         this.onRemoveColor = this.onRemoveColor.bind(this);
 
         this.state = {
-            colors:[
+            colors: [
                 {
                     id: v4(),
-                    text: 'Brown', 
+                    text: 'Brown',
                     colorValue: '#562400',
                     rate: 3
                 }
             ]
         };
     }
-    
+
     handleAddColor(text, value) {
         const color = {
             text,
@@ -32,27 +32,27 @@ class ColorApp extends Component {
             id: v4(),
             rate: 0
         };
-        this.setState({colors:[...this.state.colors,color]});
+        this.setState({ colors: [...this.state.colors, color] });
     }
 
-    onRemoveColor(colorId){
-        const colors =  this.state.colors.filter(color => color.id !== colorId);
-        this.setState({colors});
+    onRemoveColor(colorId) {
+        const colors = this.state.colors.filter(color => color.id !== colorId);
+        this.setState({ colors });
     }
 
     onRateChange(value) {
         console.log(value);
     }
-    
+
     render() {
-        const {colors} = this.state; 
-        return(
+        const { colors } = this.state;
+        return (
             <div className="container">
-                <BackToHome/>
+                <BackToHome />
                 <div className="color-app">
                     <h1>Color List App</h1>
-                    <AddColorForm onAddColor={this.handleAddColor}/>
-                    <ColorsList  colors={colors} onRateChange={this.onRateChange} onRemoveColor={this.onRemoveColor}/>
+                    <AddColorForm onAddColor={this.handleAddColor} />
+                    <ColorsList colors={colors} onRateChange={this.onRateChange} onRemoveColor={this.onRemoveColor} />
                 </div>
             </div>
         )

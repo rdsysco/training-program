@@ -12,11 +12,11 @@ class AddColorForm extends Component {
     };
 
     static defaultProps = {
-        onNewColor: f=>f
+        onNewColor: f => f
     };
 
     sumbit(e) {
-        const { _title, _color} = this.refs;
+        const { _title, _color } = this.refs;
         e.preventDefault();
         this.props.onNewColor(_title.value, _color.value);
         _title.value = '';
@@ -26,11 +26,11 @@ class AddColorForm extends Component {
     render() {
         return (
             <form onSubmit={this.sumbit}>
-                <input  ref="_title"
-                        type="text"
-                        placeholder="color title..." required/>
-                <input  ref="_color"
-                        type="color" required/>
+                <input ref="_title"
+                    type="text"
+                    placeholder="color title..." required />
+                <input ref="_color"
+                    type="color" required />
                 <button>ADD</button>
             </form>
         );
