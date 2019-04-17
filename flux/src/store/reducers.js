@@ -20,11 +20,12 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+
     switch (action.type) {
         case 'ADD_NOTE':
             return {
                 ...state,
-                notes: [...state.notes, action.notes]
+                notes: [...state.notes, action.note]
             }
         case 'REMOVE_NOTE':
             return {

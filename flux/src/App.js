@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from './components/Header';
 import Grid from './components/Grid';
 import Form from './components/Form';
-import { connect } from 'react-redux';
 import { getInitialNotes, addNewNote, removeNote } from './store/actions';
 
 class App extends Component {
@@ -22,8 +22,8 @@ const mapDispatchProps = (dispatch, ownProps) => {
     getInitialNotes: () => {
       dispatch(getInitialNotes())
     },
-    addNewNote: () => {
-      dispatch(addNewNote())
+    addNewNote: (note) => {
+      dispatch(addNewNote(note))
     },
     removeNote: (id) => {
       dispatch(removeNote(id))
@@ -31,7 +31,7 @@ const mapDispatchProps = (dispatch, ownProps) => {
   }
 }
 
-const maoStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     notes: state.notes,
     name: state.name
@@ -40,4 +40,4 @@ const maoStateToProps = (state, ownProps) => {
 
 
 
-export default connect(mapDispatchProps, maoStateToProps)(App);
+export default connect(mapDispatchProps, mapStateToProps)(App);

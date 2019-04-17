@@ -8,6 +8,7 @@ import configureStore from './store/store';
 import { getInitialNotes } from './store/actions'
 
 const store = configureStore();
+
 store.dispatch(getInitialNotes());
 
 ReactDOM.render(

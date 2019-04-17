@@ -9,7 +9,7 @@ const Single = (props) => {
           <p>{props.note.details}</p>
         </div>
         <div className="card-action">
-          <a onClick={() => props.removeNote(props.note)}>Delete</a>
+          <button onClick={() => props.removeNote(props.note)}>Delete</button>
         </div>
       </div>
     </li>
