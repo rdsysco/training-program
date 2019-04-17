@@ -9,19 +9,19 @@ export class SmartImage extends Component {
         lazySrc: PropTypes.string,
         defaultSrc: PropTypes.string,
         alt: PropTypes.string,
-        aspectRatio: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        contain: PropTypes.bool,
-        gradient: PropTypes.string,
+        // aspectRatio: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        // contain: PropTypes.bool,
+        // gradient: PropTypes.string,
         height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        position: PropTypes.string,
-        minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        transition: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+        // position: PropTypes.string,
+        // minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        // maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        // minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        // maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        // transition: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         delay: PropTypes.number,
-        grid: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))]),
+        // grid: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))]),
         intersection: PropTypes.bool,
         intersectionDelay: PropTypes.number,
     }
@@ -31,37 +31,24 @@ export class SmartImage extends Component {
         lazySrc: undefined,
         defaultSrc: undefined,
         alt: undefined,
-        aspectRatio: undefined,
-        contain: false,
-        gradient: undefined,
+        // aspectRatio: undefined,
+        // contain: false,
+        // gradient: undefined,
         height: undefined,
         width: undefined,
-        position: 'center center',
-        minHeight: undefined,
-        maxHeight: undefined,
-        minWidth: undefined,
-        maxWidth: undefined,
-        transition: 'fade-transition',
+        // position: 'center center',
+        // minHeight: undefined,
+        // maxHeight: undefined,
+        // minWidth: undefined,
+        // maxWidth: undefined,
+        // transition: 'fade-transition',
         delay: undefined,
-        grid: undefined,
+        // grid: undefined,
         intersection: true,
         intersectionDelay: undefined,
     }
 
-    constructor(props) {
-
-        super(props);
-
-        this.element = React.createRef();
-
-        this.observer = undefined;
-
-        this.state = this.calculatedOptions();
-
-        this.timeout = undefined;
-    }
-
-    calculatedGrid() {
+    get grid() {
 
         const { grid } = this.props;
 
@@ -131,7 +118,12 @@ export class SmartImage extends Component {
         return result
     }
 
-    calculatedOptions() {
+    get intersectionIsAvailable() {
+
+        return typeof window.IntersectionObserver !== undefined;
+    }
+
+    get options() {
 
         const { aspectRatio, height, width, minHeight, maxHeight, minWidth, maxWidth } = this.props;
 
@@ -144,10 +136,23 @@ export class SmartImage extends Component {
             maxHeight: this.convertNumberToString(maxHeight),
             minWidth: this.convertNumberToString(minWidth),
             maxWidth: this.convertNumberToString(maxWidth),
-            grid: this.calculatedGrid(),
+            grid: this.grid,
         };
 
         return result;
+    }
+
+    constructor(props) {
+
+        super(props);
+
+        this.element = React.createRef();
+
+        this.observer = undefined;
+
+        this.state = this.options;
+
+        this.timeout = undefined;
     }
 
     convertNumberToString(value) {
@@ -162,11 +167,6 @@ export class SmartImage extends Component {
         return result;
     }
 
-    intersectionIsAvailable() {
-
-        return typeof window.IntersectionObserver !== undefined;
-    }
-
     intersectionDisconnect() {
 
         this.observer && this.observer.disconnect && this.observer.disconnect();
@@ -176,7 +176,7 @@ export class SmartImage extends Component {
 
         const { intersection, intersectionDelay } = this.state;
 
-        if (intersection && this.intersectionIsAvailable()) {
+        if (intersection && this.intersectionIsAvailable) {
 
             this.observer = this.observer || new IntersectionObserver((entries) => {
 
@@ -191,7 +191,7 @@ export class SmartImage extends Component {
                     this.timeout = setTimeout(() => {
 
                         this.intersectionDisconnect();
-    
+
                         this.loadImage();
 
                     }, intersectionDelay || 0);
@@ -229,9 +229,9 @@ export class SmartImage extends Component {
                 }, remaining);
             };
 
-        image.onerror = () => done(defaultSrc || src);
-
         image.onload = () => done(src || defaultSrc);
+
+        image.onerror = () => done(defaultSrc || src);
 
         image.src = src || defaultSrc;
 
@@ -254,7 +254,7 @@ export class SmartImage extends Component {
 
     updateOptions() {
 
-        const options = this.calculatedOptions();
+        const options = this.options;
 
         this.setState({
             ...options
