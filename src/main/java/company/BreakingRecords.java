@@ -1,4 +1,4 @@
-package com.company;
+package company;
 
 import javax.swing.*;
 
@@ -11,18 +11,26 @@ public class BreakingRecords {
     private int numberOfBreakMax = 0;
     private Validations validate = new Validations();
 
-    public int[] prepareDataUser(String strInput) throws InvalidException {
-        countGame = Integer.parseInt(strInput);
+    public int getNumberOfBreakMax() {
+        return numberOfBreakMax;
+    }
 
-        validate.betweenNumeric(1, 1000, countGame);
+    public int getNumberOfBreakMin() {
+        return numberOfBreakMin;
+    }
+
+    public int[] prepareDataUser(String strInput) throws InvalidException {
+        countGame = Integer.parseInt( strInput );
+
+        validate.betweenNumeric( 1, 1000, countGame );
 
         int scores[] = new int[countGame];
 
         for (int i = 0; i < countGame; i++) {
-            strInput = JOptionPane.showInputDialog("Enter the game score : ");
-            scores[i] = Integer.parseInt(strInput);
+            strInput = JOptionPane.showInputDialog( "Enter the game score : " );
+            scores[i] = Integer.parseInt( strInput );
 
-            validate.betweenNumeric(1, 100000000, scores[i]);
+            validate.betweenNumeric( 1, 100000000, scores[i] );
         }
         return scores;
     }
@@ -48,16 +56,16 @@ public class BreakingRecords {
         try {
             String strInput;
 
-            strInput = JOptionPane.showInputDialog("Please enter count games : ");
-            int[] scores = prepareDataUser(strInput);
+            strInput = JOptionPane.showInputDialog( "Please enter count games : " );
+            int[] scores = prepareDataUser( strInput );
 
-            setBreaksGame(scores);
+            setBreaksGame( scores );
 
-            System.out.println("Numbers of times best score increased : " + numberOfBreakMax);
-            System.out.println("Numbers of times worst score decreased : " + numberOfBreakMin);
+            System.out.println( "Numbers of times best score increased : " + numberOfBreakMax );
+            System.out.println( "Numbers of times worst score decreased : " + numberOfBreakMin );
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println( e );
         }
     }
 
