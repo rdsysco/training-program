@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div>
         <Header name={this.props.name}/>
-        <Form addNewNote={this.props.addNewNote}/>
-        <Grid notes={this.props.notes} removeNote={this.props.removeNote}/>
+        <Form addNewNote={this.props.addNewNote1}/>
+        <Grid notes={this.props.notes} removeNote={this.props.removeNote1}/>
       </div>
     );
   }
@@ -19,13 +19,13 @@ class App extends Component {
 
 const mapDispatchProps = (dispatch, ownProps) => {
   return {
-    getInitialNotes: () => {
+    getInitialNotes1: () => {
       dispatch(getInitialNotes())
     },
-    addNewNote: (note) => {
+    addNewNote1: (note) => {
       dispatch(addNewNote(note))
     },
-    removeNote: (id) => {
+    removeNote1: (id) => {
       dispatch(removeNote(id))
     }
   }
@@ -40,4 +40,4 @@ const mapStateToProps = (state, ownProps) => {
 
 
 
-export default connect(mapDispatchProps, mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchProps)(App);

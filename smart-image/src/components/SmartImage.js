@@ -22,7 +22,7 @@ export class SmartImage extends Component {
         // transition: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         delay: PropTypes.number,
         // grid: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))]),
-        intersection: PropTypes.bool,
+        intersection: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
         intersectionDelay: PropTypes.number,
     }
 
@@ -125,7 +125,7 @@ export class SmartImage extends Component {
 
     get options() {
 
-        const { aspectRatio, height, width, minHeight, maxHeight, minWidth, maxWidth } = this.props;
+        const { aspectRatio, height, width, minHeight, maxHeight, minWidth, maxWidth, intersection, intersectionDelay } = this.props;
 
         const result = {
             ...this.props,
@@ -137,6 +137,8 @@ export class SmartImage extends Component {
             minWidth: this.convertNumberToString(minWidth),
             maxWidth: this.convertNumberToString(maxWidth),
             grid: this.grid,
+            intersection: !!intersection,
+            intersectionDelay: intersectionDelay || ((intersection > 0 && intersection !== true) ? intersection : 0)
         };
 
         return result;

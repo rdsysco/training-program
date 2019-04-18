@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Single = (props) => {
   return (
@@ -17,4 +18,12 @@ const Single = (props) => {
   );
 }
 
-export default Single;
+const mapDispatchProps = (dispatch, ownProps) => {
+  return {}
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {}
+}
+
+export default connect(mapStateToProps, mapDispatchProps)(Single);
