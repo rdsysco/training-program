@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 
 export default class Form extends Component {
-  handleChange(event) {
-    this.props.handleChange(event);
-  }
-  handleSubmit(event) {
-    this.props.handleSubmit(event);
-  }
   render() {
     return (
       <div>

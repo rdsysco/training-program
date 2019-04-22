@@ -1,3 +1,3 @@
-export * from './.base';
+export * from './_base';
 export * from './list';
 export * from './view';
