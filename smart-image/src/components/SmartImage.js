@@ -10,11 +10,11 @@ export class SmartImage extends Component {
         defaultSrc: PropTypes.string,
         alt: PropTypes.string,
         // aspectRatio: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        // contain: PropTypes.bool,
+        contain: PropTypes.bool,
         // gradient: PropTypes.string,
         height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        // position: PropTypes.string,
+        position: PropTypes.string,
         // minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         // maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         // minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -22,7 +22,7 @@ export class SmartImage extends Component {
         // transition: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         delay: PropTypes.number,
         // grid: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))]),
-        intersection: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+        intersection: PropTypes.bool,
         intersectionDelay: PropTypes.number,
     }
 
@@ -32,11 +32,11 @@ export class SmartImage extends Component {
         defaultSrc: undefined,
         alt: undefined,
         // aspectRatio: undefined,
-        // contain: false,
+        contain: false,
         // gradient: undefined,
         height: undefined,
         width: undefined,
-        // position: 'center center',
+        position: 'center center',
         // minHeight: undefined,
         // maxHeight: undefined,
         // minWidth: undefined,
@@ -125,7 +125,7 @@ export class SmartImage extends Component {
 
     get options() {
 
-        const { aspectRatio, height, width, minHeight, maxHeight, minWidth, maxWidth, intersection, intersectionDelay } = this.props;
+        const { aspectRatio, height, width, minHeight, maxHeight, minWidth, maxWidth } = this.props;
 
         const result = {
             ...this.props,
@@ -137,11 +137,19 @@ export class SmartImage extends Component {
             minWidth: this.convertNumberToString(minWidth),
             maxWidth: this.convertNumberToString(maxWidth),
             grid: this.grid,
-            intersection: !!intersection,
-            intersectionDelay: intersectionDelay || ((intersection > 0 && intersection !== true) ? intersection : 0)
         };
 
         return result;
+    }
+
+    get style() {
+
+        const { calculatedSrc, position } = this.state;
+
+        return {
+            backgroundImage: `url("${calculatedSrc}")`,
+            backgroundPosition: position
+        }
     }
 
     constructor(props) {
@@ -286,15 +294,19 @@ export class SmartImage extends Component {
 
     render() {
 
-        const { calculatedSrc, width, height, alt } = this.state;
+        const { calculatedSrc, width, height, alt, contain } = this.state;
 
         return (
-            <img
+            <div
                 ref={this.element}
-                src={calculatedSrc}
-                alt={alt}
-                width={width}
-                height={height} />
+                className="v-responsive"
+                style={{ height: '128px' }}>
+                <div className="v-responsive__sizer" />
+                <div
+                    className={"v-image__image " + (contain ? "v-image__image--contain" : "v-image__image--cover")}
+                    style={this.style} />
+                <div className="v-responsive__content" />
+            </div>
         );
     }
 }

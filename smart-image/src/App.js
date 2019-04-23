@@ -35,6 +35,7 @@ class App extends Component {
                     
                     
         <SmartImage grid={1}
+        contain={true}
         delay={500}
           src="dddddd"
           aspectRatio={2.3}

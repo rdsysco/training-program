@@ -17,3 +17,21 @@ export const removeNote = (note) => {
         note
     }
 }
+
+export const notesLoading = () => {
+    return {
+        type: 'NOTES_LOADING'
+    }
+}
+
+export const noteSuccess = () => {
+    return {
+        type: 'NOTES_SUCCESS'
+    }
+}
+
+export const noteError = () => {
+    return {
+        type: 'NOTES_ERROR'
+    }
+}
