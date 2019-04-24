@@ -144,11 +144,12 @@ export class SmartImage extends Component {
 
     get style() {
 
-        const { calculatedSrc, position } = this.state;
+        const { calculatedSrc, position, contain } = this.state;
 
         return {
             backgroundImage: `url("${calculatedSrc}")`,
-            backgroundPosition: position
+            backgroundPosition: position,
+            backgroundSize: contain ? 'contain' : 'cover',
         }
     }
 
@@ -236,6 +237,16 @@ export class SmartImage extends Component {
                     this.setState({
                         calculatedSrc: src
                     });
+
+                    // ???
+                    const { naturalHeight, naturalWidth } = image;
+
+                    if (naturalHeight || naturalWidth) {
+
+                        this.setState({
+                            calculatedAspectRatio: naturalWidth / naturalHeight
+                        });
+                    }
                 }, remaining);
             };
 
@@ -292,18 +303,29 @@ export class SmartImage extends Component {
         this.intersectionDisconnect();
     }
 
-    render() {
+    get aspectRatio() {
 
-        const { calculatedSrc, width, height, alt, contain } = this.state;
+        return 1 || this.normalisedSrc.aspect
+    }
+
+    get aspectStyle() {
+
+        const { aspectRatio } = this;
+
+        return aspectRatio ? { paddingBottom: (1 / aspectRatio) * 100 + '%' } : undefined
+    }
+
+    render() {
 
         return (
             <div
                 ref={this.element}
-                className="v-responsive"
-                style={{ height: '128px' }}>
-                <div className="v-responsive__sizer" />
+                className="v-responsive">
                 <div
-                    className={"v-image__image " + (contain ? "v-image__image--contain" : "v-image__image--cover")}
+                    className="v-responsive__sizer"
+                    style={this.aspectStyle} />
+                <div
+                    className="v-image__image"
                     style={this.style} />
                 <div className="v-responsive__content" />
             </div>

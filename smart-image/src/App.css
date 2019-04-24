@@ -1,3 +1,14 @@
+.App{
+  flex: 1 1 auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+}
+
 .v-responsive {
   position: relative;
   overflow: hidden;
@@ -27,10 +38,6 @@
   height: 100%;
 }
 
-.v-image__image--cover {
-  background-size: cover;
-}
-
-.v-image__image--contain {
-  background-size: contain;
+.v-responsive__content {
+  flex: 1 0 0px;
 }
