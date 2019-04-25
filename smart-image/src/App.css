@@ -17,19 +17,16 @@
 }
 
 .v-responsive__sizer {
-  transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
   flex: 0 0 0px;
-}
-
-.v-image__image--cover {
-  background-size: cover;
+  transition: padding-bottom 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 
 .v-image__image {
   background-repeat: no-repeat;
 }
 
-.v-image__image, .v-image__placeholder {
+.v-image__image, 
+.v-image__placeholder {
   z-index: -1;
   position: absolute;
   top: 0;

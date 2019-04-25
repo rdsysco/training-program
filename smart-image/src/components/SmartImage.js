@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
+//https://vuetifyjs.com/en/components/images
+//https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/components/VImg/VImg.ts
+//https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/components/VResponsive/VResponsive.ts
+
 export class SmartImage extends Component {
 
     // sizes, srcset
@@ -302,17 +306,12 @@ export class SmartImage extends Component {
 
         this.intersectionDisconnect();
     }
-
-    get aspectRatio() {
-
-        return 1 || this.normalisedSrc.aspect
-    }
-
+    
     get aspectStyle() {
 
-        const { aspectRatio } = this;
+        const { calculatedAspectRatio } = this.state;
 
-        return aspectRatio ? { paddingBottom: (1 / aspectRatio) * 100 + '%' } : undefined
+        return calculatedAspectRatio ? { paddingBottom: (1 / calculatedAspectRatio) * 100 + '%' } : undefined
     }
 
     render() {
