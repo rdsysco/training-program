@@ -1,8 +1,13 @@
 import { Application } from './Application';
-import { ErrorDefault, NotificationDefault, RequestAxios, RequestFetch } from './extensions';
+import { DOMDefault, ErrorDefault, NotificationDefault, RequestAxios, RequestFetch } from './extensions';
 import { Error, Profile } from './modules';
 
 const wow = new Application();
+
+wow.use(
+    'dom',
+    new DOMDefault()
+);
 
 wow.use(
     'error',
@@ -43,4 +48,12 @@ wow.register(
     }
 );
 
-wow.start();
+wow.start()
+    .then(() => {
+
+        console.log('wow start successfully');
+    })
+    .catch((error) => {
+
+        console.log('Can not start wow', error);
+    });
